@@ -1,0 +1,29 @@
+name: Matrix Usage Example
+on: workflow_dispatch
+jobs:
+  test-colours:
+    name: Test colour accessiblity
+    strategy:
+      matrix:
+        text-colour:
+          - value: "#000000"
+          - value: "#33A5F3"
+          - value: "#59FFE9"
+          - value: "#999999"
+        background-colour:
+          - value: "#000000"
+          - value: "#336633"
+          - value: "#989A5F"
+        standard:
+          - name: "WCAG"
+            level: "AA"
+          - name: "WCAG"
+            level: "AAA"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check accessibility
+        run: |
+          echo "Checking ${{ matrix.text-colour.value }}
+            on ${{ matrix.background-colour.value }}
+            for ${{ matrix.standard.name }}
+            level ${{ matrix.standard.level }}"
