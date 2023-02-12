@@ -23,3 +23,6 @@ dist/
 # mypy
 .mypy_cache/
 
+#cibuildwheel
+wheels/
+wheelhouse/

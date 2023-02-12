@@ -16,6 +16,10 @@ endif
 build: ## Builds package sepcified in pyproject.toml and setup.cfg
 	pyproject-build
 
+ci-build: ## Builds package using cibuildwheel
+	@echo "WARNING: cibuildwheel requires python (3.9,3.10,3.11) to be installed naturally"
+	python3 -m cibuildwheel --platform macos --output-dir wheels
+
 install: ## Install Built package into local .venv environment.
 	python3 -m pip install .
 
@@ -28,7 +32,7 @@ test: ## run tox unitests tests, mypy, black and flake8 in parallel:
 
 .PHONY : clean
 clean: ## Clean up build directories and generated files (*.egg-info, *.c).
-	@rm -rf ./.coverage ./.mypy_cache ./.tox ./build ./dist 
+	@rm -rf ./.coverage ./.mypy_cache ./.tox ./build ./dist ./wheelhouse ./wheels
 	@find . -type d -name "__pycache__" -not -path "./.venv/*" -exec rm -rf {} +
 	@find ./src -type d -name "*.egg-info" -exec rm -rf {} +
 	@find ./src -type f -name '*.c' -exec sh -c \
