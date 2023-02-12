@@ -16,10 +16,6 @@ endif
 build: ## Builds package sepcified in pyproject.toml and setup.cfg
 	pyproject-build
 
-ci-build: ## Builds package using cibuildwheel
-	@echo "WARNING: cibuildwheel requires python (3.9,3.10,3.11) to be installed naturally"
-	python3 -m cibuildwheel --platform macos --output-dir wheels
-
 install: ## Install Built package into local .venv environment.
 	python3 -m pip install .
 

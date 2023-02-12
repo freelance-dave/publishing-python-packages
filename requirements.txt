@@ -1,4 +1,3 @@
-cibuildwheel
 pytest
 pytest-cov
 pytest-randomly
