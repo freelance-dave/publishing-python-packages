@@ -22,6 +22,10 @@ build: ## Builds both the package and wheel, uses: pyproject.toml, setup.cfg set
 install: ## Install Built package into local .venv environment.
 	python3 -m pip install .
 
+publish: ## Publishe package source to PyPI.org
+	pyproject-build --sdist
+	twine upload dist/*
+	
 run: install ## run package's created command line tool
 	.venv/bin/harmony 0.65 0.7
 
