@@ -13,7 +13,10 @@ endif
 	@python3 -m pip install --upgrade pip setuptools wheel
 	@python3 -m pip list
 
-build: ## Builds package sepcified in pyproject.toml and setup.cfg
+package: ## Builds the package only, uses: pyproject.toml, setup.cfg, setup.py
+	python -m build --sdist
+
+build: ## Builds both the package and wheel, uses: pyproject.toml, setup.cfg setup.py
 	pyproject-build
 
 install: ## Install Built package into local .venv environment.
