@@ -34,5 +34,5 @@ jobs:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
           # package_dir: looks in ./dist by default.
-          verbose: true # for Debug Information
+          verbose: true # for Debug Information ...
 
