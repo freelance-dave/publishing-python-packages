@@ -13,6 +13,10 @@ endif
 	@python3 -m pip install --upgrade pip setuptools wheel
 	@python3 -m pip list
 
+githook: ## Runs pre-commit hooks against all source files.
+	@pre-commit install
+	pre-commit run --all-files
+
 package: ## Builds the package only, uses: pyproject.toml, setup.cfg, setup.py
 	python -m build --sdist
 

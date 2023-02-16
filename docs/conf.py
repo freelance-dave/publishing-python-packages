@@ -9,9 +9,9 @@ from importlib import metadata
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'pubpypack-harmony-david-tozer'
-copyright = '2023, David Tozer'
-author = 'David Tozer'
+project = "pubpypack-harmony-david-tozer"
+copyright = "2023, David Tozer"
+author = "David Tozer"
 
 PACKAGE_VERSION = metadata.version("pubpypack-harmony-david-tozer")
 version = PACKAGE_VERSION
@@ -21,19 +21,19 @@ release = PACKAGE_VERSION
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autodoc.typehints',
-    'sphinx.ext.napoleon',
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autodoc.typehints",
+    "sphinx.ext.napoleon",
 ]
 
-templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+templates_path = ["_templates"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
-html_static_path = ['_static']
+html_theme = "alabaster"
+html_static_path = ["_static"]
 
 # -- Setup for sphinx-apidoc -------------------------------------------------
 
@@ -49,17 +49,20 @@ if os.environ.get("READTHEDOCS") == "True":
 
     def run_apidoc(_):
         from sphinx.ext import apidoc
-        apidoc.main([
-            "--force",
-            "--implicit-namespaces",
-            "--module-first",
-            "--separate",
-            "-o",
-            str(PROJECT_ROOT / "docs" / "reference"),
-            str(PACKAGE_ROOT),
-            str(PACKAGE_ROOT / "*.c"),
-            str(PACKAGE_ROOT / "*.so"),
-        ])
+
+        apidoc.main(
+            [
+                "--force",
+                "--implicit-namespaces",
+                "--module-first",
+                "--separate",
+                "-o",
+                str(PROJECT_ROOT / "docs" / "reference"),
+                str(PACKAGE_ROOT),
+                str(PACKAGE_ROOT / "*.c"),
+                str(PACKAGE_ROOT / "*.so"),
+            ]
+        )
 
     def setup(app):
-        app.connect('builder-inited', run_apidoc)
+        app.connect("builder-inited", run_apidoc)
