@@ -1,0 +1,34 @@
+# Environments
+.DS_Store
+.envrc
+.venv/
+__pycache__/
+
+# pyenv
+.python-version
+
+# Distribution and packaging
+*.egg-info/
+build/
+dist/
+
+# Compiled extensions
+*.c
+
+# Unit test and coverage reports
+.coverage
+.pytest_cache
+.tox
+
+# mypy
+.mypy_cache/
+
+# cibuildwheel
+wheels/
+wheelhouse/
+
+# sphinx
+docs/_build/
+docs/_templates/
+docs/reference/
+
